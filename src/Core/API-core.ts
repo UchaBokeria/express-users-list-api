@@ -13,10 +13,10 @@ export const Core = async (_App) => {
 }
 
 
-export const GET    = (route: string, result: any) => __APP.get(route,    (_Request, _Response) => _Response.send(JSON.stringify(result)) )
+export const GET    = (route: string, callback: any) => __APP.get(route,    async (_Request, _Response) => _Response.send( JSON.stringify( await callback(_Request,_Response) ) ) )
 
-export const POST   = (route: string, result: any) => __APP.post(route,   (_Request, _Response) => _Response.send(JSON.stringify(result)) )
+export const POST   = (route: string, callback: any) => __APP.post(route,   async (_Request, _Response) => _Response.send( JSON.stringify( await callback(_Request,_Response) ) ) )
 
-export const PUT    = (route: string, result: any) => __APP.put(route,    (_Request, _Response) => _Response.send(JSON.stringify(result)) )
+export const PUT    = (route: string, callback: any) => __APP.put(route,    async (_Request, _Response) => _Response.send( JSON.stringify( await callback(_Request,_Response) ) ) )
 
-export const DELETE = (route: string, result: any) => __APP.delete(route, (_Request, _Response) => _Response.send(JSON.stringify(result)) )
+export const DELETE = (route: string, callback: any) => __APP.delete(route, async (_Request, _Response) => _Response.send( JSON.stringify( await callback(_Request,_Response) ) ) )

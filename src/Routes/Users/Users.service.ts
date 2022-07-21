@@ -20,10 +20,10 @@ export class UsersService {
 
     }
 
-    static async find(id) {
-      console.log(id);
-      
-      return await Database.query(" SELECT 1 + 1 AS solution;  ", [])
+    static async find(req: any) {
+
+      var id = req.params.id;
+      return await Database.query(` SELECT IF(1 IN(:id),'true','false') AS solution , IF(1 IN(:id2),'true','false') AS x;  `, {id: id,id2:id}, true)
 
     }
 

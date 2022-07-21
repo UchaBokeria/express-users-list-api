@@ -3,14 +3,14 @@ import { DELETE, GET, POST, PUT } from '../../Core/API-core'
 
 export const Users = async (req, res) => {
     
-    GET('/Users', await UsersService.Read())
+    GET('/Users', UsersService.Read)
 
-    GET('/Users/:id', await UsersService.find(req.params.id))
+    GET('/Users/:id', UsersService.find)
 
-    POST('/Users/Create', await UsersService.Create())
+    POST('/Users/Create', UsersService.Create)
 
-    PUT('/Users/Update/:id', await UsersService.Update())
+    PUT('/Users/Update/:id', UsersService.Update)
 
-    DELETE('/Users/delete/:id', await UsersService.Delete())
+    DELETE('/Users/delete/:id', UsersService.Delete)
     
 }
